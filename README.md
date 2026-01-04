@@ -1,6 +1,8 @@
 
 # NAMASTE ↔ ICD-11 Terminology Mapping Platform
 
+# TRY LIVE : https://namasthe-icd11.vercel.app/
+
 A comprehensive healthcare terminology mapping system that bridges traditional medicine (NAMASTE) with international medical classifications (ICD-11) using FHIR standards.
 
 ## Features
