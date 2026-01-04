@@ -1,0 +1,235 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --background: 210 25% 97%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 187 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 215 25% 25%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 187 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 187 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom floating UI tokens */
+    --shadow-float: 0 8px 32px -8px hsl(215 25% 15% / 0.12);
+    --shadow-float-hover: 0 16px 48px -12px hsl(215 25% 15% / 0.18);
+    --shadow-glow: 0 0 40px hsl(187 70% 45% / 0.15);
+    --shadow-card: 0 4px 24px -4px hsl(215 25% 15% / 0.08);
+    
+    --gradient-surface: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 25% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(187 70% 45%) 0%, hsl(187 60% 55%) 100%);
+    --gradient-mesh: radial-gradient(ellipse at 20% 30%, hsl(187 70% 45% / 0.08) 0%, transparent 50%),
+                     radial-gradient(ellipse at 80% 70%, hsl(187 60% 55% / 0.06) 0%, transparent 50%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 187 70% 50%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 187 60% 55%;
+    --accent-foreground: 220 20% 10%;
+
+    --success: 152 55% 50%;
+    --success-foreground: 220 20% 10%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 220 20% 10%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 187 70% 50%;
+
+    --shadow-float: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-float-hover: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(187 70% 50% / 0.2);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .floating-card {
+    @apply bg-card rounded-xl transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-float);
+  }
+
+  .floating-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-float-hover);
+  }
+
+  .floating-card-static {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .floating-panel {
+    @apply bg-card rounded-2xl p-6;
+    box-shadow: var(--shadow-float);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .mesh-background {
+    background: var(--gradient-mesh);
+  }
+
+  .surface-gradient {
+    background: var(--gradient-surface);
+  }
+
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-mapped {
+    @apply bg-success/10 text-success;
+  }
+
+  .status-partial {
+    @apply bg-warning/10 text-warning;
+  }
+
+  .status-unmapped {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .search-input-float {
+    @apply w-full px-6 py-4 rounded-2xl bg-card border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .search-input-float:focus {
+    box-shadow: var(--shadow-float), var(--shadow-glow);
+  }
+
+  .nav-card {
+    @apply floating-card p-6 cursor-pointer flex flex-col items-center justify-center gap-3 text-center min-h-[160px];
+  }
+
+  .nav-card-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center accent-gradient text-primary-foreground;
+  }
+
+  .json-viewer {
+    @apply font-mono text-sm bg-muted/50 rounded-xl p-4 overflow-auto max-h-[500px];
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+}
